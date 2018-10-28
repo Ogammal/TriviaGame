@@ -1,0 +1,52 @@
+body {
+    background-image: url("../images/background.jpg");
+    text-align: center;
+}
+h1 {
+    background-color: rgba(9, 9, 32, 0.63);
+    padding: 40px;
+    font-weight: bold;
+    font-size: 40px;
+    color: white;
+    font-family:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-top: 40px;   
+}
+#start {
+    margin: 50px;
+    background: white;
+    border: 2px solid rgb(4, 14, 151);
+    border-radius: 6px;
+    height: 40px;
+    width: 120px;
+    font-size: 16px;
+    font-family:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#start:hover {
+    background-color: rgb(4, 14, 151);
+    color: white;
+}
+#quiz-area {
+    background-color: rgba(9, 9, 32, 0.63);
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 50px;
+    margin: 10px 150px 30px 150px;
+}
+p {
+    font-size: 20px;
+    text-decoration: underline dotted;
+}
+
+#timer {
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    margin: 10px;
+    background-color: rgba(9, 9, 32, 0.63);
+    padding: 20px;
+
+}
+span {
+    padding: 20px;
+    font-weight: 100;
+}
