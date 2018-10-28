@@ -9,6 +9,7 @@ var setInt;
 function timeUp() {
   clearInterval(setInt);
   $('#timer').empty()
+  $('#quiz-area').empty()
   allDone();
 };
 
@@ -23,7 +24,7 @@ function allDone() {
   $('#quiz-area').append(totalUnanswered);
 };
 
-//
+// reduce the count down timer every second and then call timeUp function when timer hits 0
 function decrement() {
   timer--
   $('#timer').text("You have " + timer + " seconds remaining");
@@ -32,11 +33,14 @@ function decrement() {
   }
 }
 
+
+// click event that triggers
 $('#start').on("click", function() {
   $('#quiz-area').empty()
   $('#timer').text("You have " + timer + " seconds remaining");
   setInt = setInterval(decrement, 1000);
-  var queryURL = "https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiplehttps://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple";
+  
+  var queryURL = "https://cocktail-trivia-api.herokuapp.com/api/category/entertainment-video-games/difficulty/easy";
     
   $.ajax({
     url: queryURL,
@@ -44,7 +48,20 @@ $('#start').on("click", function() {
   })
   .then(function(response) {
       console.log(response)
-      var questions = response.results;
-      
-  })
+      var questions = response;
+      for (var i = 0; i < questions.length; i++) {
+        var question = $('<p>' + response[i].text + '<p>')
+        $('#quiz-area').append(question);
+        var name = "btn" + i
+        for (var j = 0; j < 4; j++) {
+        var choices = $('<input type="radio">').val(response[i].answers[j].text);
+        choices.attr("name", name);
+        $('#quiz-area').append(choices);
+        var choiceText = $('<span>' + response[i].answers[j].text + '</span>')
+        $('#quiz-area').append(choiceText);
+        console.log(choices.val())
+        }
+      }
+      // if ()
+  })  
 });
