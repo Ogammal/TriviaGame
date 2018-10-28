@@ -26,39 +26,8 @@ function timeUp() {
   var restart = $('<button id="restart" >Restart</button>');
   $('#quiz-area').append(restart);
   $('#restart').on("click", function() {
-    $('#quiz-area').empty()
-  // append the game clock to the HTML
-  $('#timer').text("You have " + timer + " seconds remaining");
-  setInt = setInterval(decrement, 1000);
-  // create variable with API URL
-  var queryURL = "https://cocktail-trivia-api.herokuapp.com/api/category/entertainment-video-games/difficulty/easy";
-  // call api using ajax function 
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  })
-  .then(function(response) {
-      console.log(response)
-      var questions = response;
-      // for loop to run through the length of the question bank from the api
-      for (var i = 0; i < questions.length; i++) {
-        //create and append the rows of questions
-        var question = $('<p>' + response[i].text + '<p>')
-        $('#quiz-area').append(question);
-        // create variable for radio button names
-        var radioName = "btn" + i
-        // nested for loop to run through the number of radio button choices in the question bank
-        for (var j = 0; j < 4; j++) {
-        var choices = $('<input id="check" type="radio">').val(response[i].answers[j].correct);
-        // add the name attribute to each row of radio buttons and append them to HTML
-        choices.attr("name", radioName);
-        $('#quiz-area').append(choices);
-        // add the corresponding answer next to each radio button
-        var choiceText = $('<span>' + response[i].answers[j].text + '</span>')
-        $('#quiz-area').append(choiceText);
-        }
-      }
-  })  
+    timer = 5;
+    init (); 
   });
 };
 
@@ -83,8 +52,8 @@ function decrement() {
 }
 
 
-// click event that triggers that initiates the game
-$('#start').on("click", function() {
+// function that initiates the game
+function init() {
   $('#quiz-area').empty()
   // append the game clock to the HTML
   $('#timer').text("You have " + timer + " seconds remaining");
@@ -118,4 +87,9 @@ $('#start').on("click", function() {
         }
       }
   })  
+};
+// click event listener to call on the intitialize function
+$('#start').on("click", function() {
+  init();
 });
+
