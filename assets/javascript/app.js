@@ -1,5 +1,5 @@
 // Declaring the global variables needed
-var timer = 5;
+var timer = 60 ;
 var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
@@ -26,10 +26,14 @@ function timeUp() {
   var restart = $('<button id="restart" >Restart</button>');
   $('#quiz-area').append(restart);
   $('#restart').on("click", function() {
-    timer = 5;
+    timer = 60;
     init (); 
   });
 };
+
+function submit() {
+  timeUp();
+}
 
 // function to append the resulting scores from the game to the HTML
 function allDone() {
@@ -86,10 +90,15 @@ function init() {
         $('#quiz-area').append(choiceText);
         }
       }
+    var submit = $('<div id="submit" ><button>Submit</button></div>');
+    $('#quiz-area').append(submit);  
   })  
 };
 // click event listener to call on the intitialize function
 $('#start').on("click", function() {
   init();
+});
+$('#submit').on("click", function() {
+  submit();
 });
 

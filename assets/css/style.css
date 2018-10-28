@@ -12,7 +12,7 @@ h1 {
     margin-top: 40px;   
 }
 button {
-    margin: 50px;
+    margin: 40px;
     background: white;
     border: 2px solid rgb(4, 14, 151);
     border-radius: 6px;
@@ -31,6 +31,7 @@ button {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     line-height: 50px;
     margin: 10px 150px 30px 150px;
+    font-size: 20px;
 }
 p {
     font-size: 20px;
