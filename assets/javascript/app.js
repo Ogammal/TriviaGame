@@ -22,10 +22,13 @@ function timeUp() {
 
   $('#timer').empty()
   $('#quiz-area').empty()
+  $('#submit').empty()
   allDone();
   var restart = $('<button id="restart" >Restart</button>');
   $('#quiz-area').append(restart);
   $('#restart').on("click", function() {
+    correct = 0;
+    incorrect = 0;
     timer = 60;
     init (); 
   });
@@ -90,8 +93,8 @@ function init() {
         $('#quiz-area').append(choiceText);
         }
       }
-    var submit = $('<div id="submit" ><button>Submit</button></div>');
-    $('#quiz-area').append(submit);  
+    var submit = $('<button>Submit</button>');
+    $('#submit').append(submit);  
   })  
 };
 // click event listener to call on the intitialize function
